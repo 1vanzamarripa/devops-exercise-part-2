@@ -1,0 +1,3 @@
+- src: https://github.com/1vanzamarripa/devops-exercise-part-1.git
+  name: nginx
+  scm: git

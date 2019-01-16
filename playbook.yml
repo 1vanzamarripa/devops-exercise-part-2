@@ -1,0 +1,5 @@
+---
+- hosts: containers
+  user: root
+  roles:
+  - nginx

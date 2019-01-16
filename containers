@@ -1,0 +1,3 @@
+[containers]
+debian ansible_connection=docker ansible_ssh_port=2222
+centos ansible_connection=docker ansible_ssh_port=2223
