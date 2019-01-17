@@ -1,4 +1,18 @@
 ---
+- hosts: debian
+  user: root
+  gather_facts: False
+  pre_tasks:
+    - name: "Install python on Debian container"
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False
+
+- hosts: centos
+  user: root
+  tasks:
+  - name: "Install epel-release on Centos container"
+    command: "yum -y install epel-release"
+
 - hosts: containers
   user: root
   roles:
