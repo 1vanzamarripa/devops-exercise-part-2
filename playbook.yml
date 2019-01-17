@@ -3,13 +3,14 @@
   user: root
   gather_facts: False
   pre_tasks:
-    - name: "Install python on Debian container"
-      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-      changed_when: False
+  - name: "Install python on Debian container"
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  - name: "Install curl on Debian container"
+    command: apt install -y curl
 
 - hosts: centos
   user: root
-  tasks:
+  pre_tasks:
   - name: "Install epel-release on Centos container"
     command: "yum -y install epel-release"
 
