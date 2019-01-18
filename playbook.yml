@@ -18,3 +18,12 @@
   user: root
   roles:
   - nginx
+  post_tasks:
+  - name: "Docker commit debian image"
+    local_action: "shell docker commit debian debian:devops-x"
+  - name: "Docker commit centos image"
+    local_action: "shell docker commit centos centos:devops-x"
+  - name: "Docker stop debian container"
+    local_action: "shell docker stop debian"
+  - name: "Docker stop centos container"
+    local_action: "shell docker stop centos"
